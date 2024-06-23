@@ -2,9 +2,7 @@ SELECT
 date, 
 channel,
 clicks,
-likes,
-shares,
-comments,
+(likes + shares +comments) AS engagements,
 impressions,
 spend,
 purchase as conversitions

@@ -1,0 +1,66 @@
+with bing as (
+    select 
+        date,
+        channel,
+        clicks,
+        0 as engagements,
+        0 as impressions,
+        spend,
+        conv as conversions
+    from {{ source('dbt_ulbonchik', 'src_ads_bing_all_data') }}
+),
+facebook as (
+    select
+        date, 
+        channel,
+        clicks,
+        (likes + shares + comments) as engagements,
+        impressions,
+        spend,
+        purchase as conversions
+    from {{ source('dbt_ulbonchik', 'src_ads_creative_facebook_all_data') }}
+),
+tiktok as (
+    select 
+        date,
+        channel,
+        clicks,
+        0 as engagements,
+        impressions,
+        spend,
+        purchase as conversions
+    from {{ source('dbt_ulbonchik', 'src_ads_tiktok_ads_all_data') }}
+),
+twitter as (
+    select 
+        date,
+        channel,
+        clicks,
+        engagements,
+        0 as impressions,
+        spend,
+        0 as conversions
+    from {{ source('dbt_ulbonchik', 'src_promoted_tweets_twitter_all_data') }}
+),
+combined_data as (
+    select * from bing
+    union all
+    select * from facebook
+    union all
+    select * from tiktok
+    union all
+    select * from twitter
+),
+aggregated_data as (
+    select
+        channel,
+        sum(clicks) as total_clicks,
+        sum(engagements) as total_engagements,
+        sum(impressions) as total_impressions,
+        sum(spend) as total_spend,
+        sum(conversions) as total_conversions
+    from combined_data
+    group by channel
+)
+
+select * from aggregated_data

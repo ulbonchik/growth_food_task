@@ -6,7 +6,7 @@ models:
         meta:
           data_type: DATE
       - name: add_to_cart
-        description: "Number of add-to-cart events"
+        description: "Number of add-to-cart events (missing)"
         meta:
           data_type: INT64
       - name: clicks
@@ -14,55 +14,55 @@ models:
         meta:
           data_type: INT64
       - name: comments
-        description: "Number of comments"
+        description: "Number of comments (missing)"
         meta:
           data_type: INT64
       - name: engagements
-        description: "Number of engagements (if there is no engament columns it can be created as a sum of views, likes, comments and shares)"
+        description: "Number of engagements (missing)"
         meta:
           data_type: INT64
       - name: impressions
-        description: "Number of impressions"
+        description: "Number of impressions (missing)"
         meta:
           data_type: INT64
       - name: installs
-        description: "Number of installs (check for all columns mentioning installs)"
+        description: "Number of installs (missing)"
         meta:
           data_type: INT64
       - name: likes
-        description: "Number of likes"
+        description: "Number of likes (missing)"
         meta:
           data_type: INT64
       - name: link_clicks
-        description: "Number of link clicks (may be url_clicks etc)"
+        description: "Number of link clicks (missing)"
         meta:
           data_type: INT64
       - name: post_click_conversions
-        description: "Number of post-click conversions"
+        description: "Number of post-click conversions (missing)"
         meta:
           data_type: INT64
       - name: post_view_conversions
-        description: "Number of post-view conversions"
+        description: "Number of post-view conversions (missing)"
         meta:
           data_type: INT64
       - name: posts
-        description: "Number of posts"
+        description: "Number of posts (missing)"
         meta:
           data_type: INT64
       - name: purchase
-        description: "Number of purchases"
+        description: "Number of purchases (missing)"
         meta:
           data_type: INT64
       - name: registrations
-        description: "Number of registrations"
+        description: "Number of registrations (missing)"
         meta:
           data_type: INT64
       - name: revenue
-        description: "Revenue generated"
+        description: "Revenue generated (missing)"
         meta:
           data_type: INT64
       - name: shares
-        description: "Number of shares (retweets for twitter)"
+        description: "Number of shares (missing)"
         meta:
           data_type: INT64
       - name: spend
@@ -74,11 +74,11 @@ models:
         meta:
           data_type: INT64
       - name: video_views
-        description: "Number of video views"
+        description: "Number of video views (missing)"
         meta:
           data_type: INT64
       - name: ad_id
-        description: "Ad ID (look for anything that gives unique code for a this add)"
+        description: "Ad ID"
         meta:
           data_type: STRING
       - name: adset_id
@@ -94,10 +94,10 @@ models:
         meta:
           data_type: STRING
       - name: creative_id
-        description: "Creative ID"
+        description: "Creative ID (missing)"
         meta:
           data_type: STRING
       - name: placement_id
-        description: "Placement ID"
+        description: "Placement ID (missing)"
         meta:
           data_type: STRING

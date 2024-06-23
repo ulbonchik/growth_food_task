@@ -17,8 +17,8 @@ clean-targets:
   - "dbt_packages"
 
 models:
-  growth_food_task:
-    mart:
-      +materialized: table
-    staging:
-      +materialized: view
+staging:
+    +materialized: view
+analyses:
+analyses:
+    +materialized: table

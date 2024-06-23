@@ -22,7 +22,7 @@
 - If **channel name** is missing add line `channel name' AS channel` as it is a must for group by command.
 
 ## Add Data to MCDM
-- Update the `paid_ads_performance` SQL query to include the new platform's data, following the pattern used for existing platforms.
-
+- Update the `paid_ads_basic_performance` and `paid_ads_performance_totals` SQL queries to include the new platform's data, following the pattern used for existing platforms.
+- Update both platforms only if you decide to use both of them in your work.
 ## Validate
 - Run `dbt run` to build your models and verify that the new data is correctly included in the MCDM table.

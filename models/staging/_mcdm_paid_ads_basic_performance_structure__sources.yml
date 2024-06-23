@@ -1,0 +1,10 @@
+sources:
+  - name: dbt_ulbonchik
+    database: growth-shop
+    schema: dbt_ulbonchik
+    tables:
+      - name: mcdm_paid_ads_basic_performance_structure
+      - name: src_ads_bing_all_data
+      - name: src_ads_creative_facebook_all_data
+      - name: src_ads_tiktok_ads_all_data
+      - name: src_promoted_tweets_twitter_all_data

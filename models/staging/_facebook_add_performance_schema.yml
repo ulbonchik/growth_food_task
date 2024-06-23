@@ -47,7 +47,7 @@ models:
         description: "Revenue generated"
         data_type: INT64
       - name: shares
-        description: "Number of shares" (retweets for twitter)
+        description: "Number of shares (retweets for twitter)"
         data_type: INT64
       - name: spend
         description: "Amount spent"
@@ -59,7 +59,7 @@ models:
         description: "Number of video views"
         data_type: INT64
       - name: ad_id
-        description: "Ad ID" (look for anything that gives unique code for a this add)
+        description: "Ad ID (look for anything that gives unique code for a this add)"
         data_type: STRING
       - name: adset_id
         description: "Adset ID"

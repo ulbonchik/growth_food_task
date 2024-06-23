@@ -25,3 +25,83 @@ CREATE TABLE paid_ads_performance (
     creative_id STRING,
     placement_id STRING
 );
+
+WITH bing AS (
+    SELECT *
+    FROM {{ ref('bing_add_performance') }}
+),
+facebook AS (
+    SELECT *
+    FROM {{ ref('facebook_add_performance') }}
+),
+tiktok AS (
+    SELECT *
+    FROM {{ ref('tiktok_add_performance') }}
+),
+twitter AS (
+    SELECT *
+    FROM {{ ref('twitter_add_performance') }}
+),
+combined_data AS (
+    SELECT * FROM bing
+    UNION ALL
+    SELECT * FROM facebook
+    UNION ALL
+    SELECT * FROM tiktok
+    UNION ALL
+    SELECT * FROM twitter
+)
+INSERT INTO dbt_ulbonchik.new_paid_ads_performance (
+    date, 
+    add_to_cart, 
+    clicks, 
+    comments, 
+    engagements, 
+    impressions, 
+    installs, 
+    likes, 
+    link_clicks, 
+    post_click_conversions, 
+    post_view_conversions, 
+    posts, 
+    purchase, 
+    registrations, 
+    revenue, 
+    shares, 
+    spend, 
+    total_conversions, 
+    video_views, 
+    ad_id, 
+    adset_id, 
+    campaign_id, 
+    channel, 
+    creative_id, 
+    placement_id
+)
+SELECT 
+    date, 
+    add_to_cart, 
+    clicks, 
+    comments, 
+    engagements, 
+    impressions, 
+    installs, 
+    likes, 
+    link_clicks, 
+    post_click_conversions, 
+    post_view_conversions, 
+    posts, 
+    purchase, 
+    registrations, 
+    revenue, 
+    shares, 
+    spend, 
+    total_conversions, 
+    video_views, 
+    ad_id, 
+    adset_id, 
+    campaign_id, 
+    channel, 
+    creative_id, 
+    placement_id
+FROM combined_data;

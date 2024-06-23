@@ -33,8 +33,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   growth_food_task:
-    # Applies to all files under models/example/
     staging:
-      materialized: view
+      +materialized: view
     mart:
-      materialized: table
+      +materialized: table

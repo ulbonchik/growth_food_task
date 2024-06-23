@@ -3,8 +3,8 @@ with bing as (
         date,
         channel,
         clicks,
-        0 as engagements,
-        0 as impressions,
+        0 as engagements, --as there are no engagements in original in bing file
+        0 as impressions, --as there are no impressions in original in bing file
         spend,
         conv as conversions
     from {{ source('dbt_ulbonchik', 'src_ads_bing_all_data') }}
@@ -14,7 +14,7 @@ facebook as (
         date, 
         channel,
         clicks,
-        (likes + shares + comments) as engagements,
+        (likes + shares + comments) as engagements, --we create engagemnts fielf by adding likes, shares and comments
         impressions,
         spend,
         purchase as conversions
@@ -25,7 +25,7 @@ tiktok as (
         date,
         channel,
         clicks,
-        0 as engagements,
+        0 as engagements, --as there are no engagements in original tiktok file
         impressions,
         spend,
         purchase as conversions
@@ -37,9 +37,9 @@ twitter as (
         channel,
         clicks,
         engagements,
-        0 as impressions,
+        0 as impressions, --as there are no impression in original twitter_file
         spend,
-        0 as conversions
+        0 as conversions --as there are no conversions in original twitter_file
     from {{ source('dbt_ulbonchik', 'src_promoted_tweets_twitter_all_data') }}
 ),
 combined_data as (
@@ -59,6 +59,9 @@ aggregated_data as (
         sum(impressions) as total_impressions,
         sum(spend) as total_spend,
         sum(conversions) as total_conversions
+        case when total_conversions = 0 then null else total_spend / total_conversions end as conversion_cost,
+        case when total_engagements = 0 then null else total_spend / total_engagements end as engagement_cost,
+        case when total_clicks = 0 then null else total_spend / total_clicks end as cpc
     from combined_data
     group by channel
 )

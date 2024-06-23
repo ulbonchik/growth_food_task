@@ -19,6 +19,7 @@
 - **Engagement** can be calculated as the sum of views, likes, comments, and shares.
 - Most important fields to identify: clicks, amount spent, engagements, conversions.
 - Look for synonyms and double-check all available columns in your raw data.
+- If **channel name** is missing add line `channel name' AS channel` as it is a must for group by command.
 
 ## Add Data to MCDM
 - Update the `paid_ads_performance` SQL query to include the new platform's data, following the pattern used for existing platforms.

@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: paid_ads_performance_totals
+    description: "This table contains all metrics ready for analysis. If necessary, date can be added to group by."
+    columns:
+      - name: channel
+        description: "Ad channel. Data is grouped by this column."
+      - name: total_clicks
+        description: "Total clicks by channel."
+      - name: total_engagements
+        description: "Total engagements grouped by channel."
+      - name: total_impressions
+        description: "Total number of impressions grouped by channel."
+      - name: total_spend
+        description: "Total channel ad budget spent."
+      - name: total_conversions
+        description: "Total number of conversions that came from the channel."
+      - name: conversion_cost
+        description: "Calculated as total spend divided by total number of conversions. Calculations are made only if total conversions are not 0."
+      - name: engagement_cost
+        description: "Calculated as total spend divided by total number of engagements. Calculations are made only if total engagements are not 0."
+      - name: cpc
+        description: "Cost per click, calculated as total spend divided by total number of clicks. Calculations are made only if total clicks are not 0."

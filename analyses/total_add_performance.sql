@@ -7,7 +7,7 @@ with bing as (
         0 as impressions, --as there are no impressions in original in bing file
         spend,
         conv as conversions
-    from {{ source('dbt_ulbonchik', 'src_ads_bing_all_data') }}
+    from {{ ref('bing_add_performance') }}
 ),
 facebook as (
     select
@@ -18,7 +18,7 @@ facebook as (
         impressions,
         spend,
         purchase as conversions
-    from {{ source('dbt_ulbonchik', 'src_ads_creative_facebook_all_data') }}
+    from {{ ref('facebook_add_performance') }}
 ),
 tiktok as (
     select 
@@ -29,7 +29,7 @@ tiktok as (
         impressions,
         spend,
         purchase as conversions
-    from {{ source('dbt_ulbonchik', 'src_ads_tiktok_ads_all_data') }}
+    from {{ ref('tiktok_add_performance') }}
 ),
 twitter as (
     select 
@@ -40,7 +40,7 @@ twitter as (
         0 as impressions, --as there are no impressions in original twitter file
         spend,
         0 as conversions --as there are no conversions in original twitter file
-    from {{ source('dbt_ulbonchik', 'src_promoted_tweets_twitter_all_data') }}
+    from {{ ref('twitter_add_performance') }}
 ),
 combined_data as (
     select * from bing

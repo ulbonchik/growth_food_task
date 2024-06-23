@@ -1,9 +1,27 @@
 SELECT
-date, 
-channel,
-clicks,
-(likes + shares +comments+views) AS engagements, -- we create engagements field by adding likes, shares and comments
-impressions,
-spend,
-purchase as conversions
-FROM {{ source('dbt_ulbonchik', 'src_ads_creative_facebook_all_data')}}
+    date,
+    add_to_cart,
+    clicks, 
+    comments,
+    (likes + shares + comments + views) AS engagements, -- we create engagements field by adding views, likes, shares and comments
+    impressions,
+    mobile_app_install as installs,
+    likes,
+    inline_link_clicks as link_clicks,
+    NULL as post_click_conversions,
+    NULL as post_click_conversions,
+    NULL as posts,
+    purchase,
+    complete registrations as registrations,
+    (purchase_revenue - spend) as revenue,
+    shares,
+    spend,
+    purcase as total_conversions,
+    NULL AS video_views,
+    ad_id,
+    adset_id,
+    campaign_id,
+    channel,
+    creative_id,
+    NULL as placement_id
+FROM {{ source('dbt_ulbonchik', 'src_ads_creative_facebook_all_data')}}	

@@ -14,7 +14,7 @@ facebook as (
         date, 
         channel,
         clicks,
-        (likes + shares + comments) as engagements, --we create engagemnts fielf by adding likes, shares and comments
+        (likes + shares + comments) as engagements, --we create engagements field by adding likes, shares and comments
         impressions,
         spend,
         purchase as conversions
@@ -37,9 +37,9 @@ twitter as (
         channel,
         clicks,
         engagements,
-        0 as impressions, --as there are no impression in original twitter_file
+        0 as impressions, --as there are no impressions in original twitter file
         spend,
-        0 as conversions --as there are no conversions in original twitter_file
+        0 as conversions --as there are no conversions in original twitter file
     from {{ source('dbt_ulbonchik', 'src_promoted_tweets_twitter_all_data') }}
 ),
 combined_data as (
@@ -53,17 +53,18 @@ combined_data as (
 ),
 aggregated_data as (
     select
+        date,
         channel,
         sum(clicks) as total_clicks,
         sum(engagements) as total_engagements,
         sum(impressions) as total_impressions,
         sum(spend) as total_spend,
-        sum(conversions) as total_conversions
-        case when total_conversions = 0 then null else total_spend / total_conversions end as conversion_cost,
-        case when total_engagements = 0 then null else total_spend / total_engagements end as engagement_cost,
-        case when total_clicks = 0 then null else total_spend / total_clicks end as cpc
+        sum(conversions) as total_conversions,
+        case when sum(conversions) = 0 then null else sum(spend) / sum(conversions) end as conversion_cost,
+        case when sum(engagements) = 0 then null else sum(spend) / sum(engagements) end as engagement_cost,
+        case when sum(clicks) = 0 then null else sum(spend) / sum(clicks) end as cpc
     from combined_data
-    group by channel
+    group by date, channel
 )
 
-select * from aggregated_data
+select * from aggregated_data;

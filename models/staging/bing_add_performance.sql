@@ -1,9 +1,27 @@
 SELECT
     date,
-    channel,
+    NULL as add_to cart 
     clicks,
-    0 as engagements,
-    0 as impressions,
+    NULL as comments,
+    NULL as engagements,
+    NULL as impressions,
+    NULL as installs,
+    NULL as likes,
+    NULL as link_clicks,
+    NULL as post_click_conversions,
+    NULL as post_view_conversions,
+    NULL as posts,
+    NULL as purchase,
+    NULL as registrations,
+    NULL as revenue,
+    NULL as shares,
     spend,
-    conv as conversions
+    conv as total_conversions,
+    NULL as video_views,
+    add_id,
+    addset_id,
+    campaign_id,
+    channel,
+    NULL as creative_id,
+    NULL as placement_id
 FROM {{ source('dbt_ulbonchik', 'src_ads_bing_all_data') }}

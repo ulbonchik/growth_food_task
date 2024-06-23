@@ -2,6 +2,7 @@ SELECT
 date,
 channel,
 clicks,
+0 as engagements,
 impressions,
 spend,
 purchase as conversitions

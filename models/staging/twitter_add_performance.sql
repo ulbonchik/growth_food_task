@@ -1,3 +1,4 @@
+WITH twitter_raw_data AS (
 SELECT
     date,
     NULL as add_to_cart,
@@ -9,7 +10,7 @@ SELECT
     likes,
     url_clicks as link_clicks,
     NULL as post_click_conversions,
-    NULl as post_views_conversions,
+    NULl as post_view_conversions,
     NULL as posts,
     NULL as purchase,
     NULL as registrations,
@@ -25,3 +26,31 @@ SELECT
     NULL as creative_id,
     NULL as placement_id
 FROM {{ source('dbt_ulbonchik', 'src_promoted_tweets_twitter_all_data') }}
+)
+SELECT 
+    cast(date as DATE) as date,
+    cast(add_to_cart as INT64) as add_to_cart,
+    cast(clicks as INT64) as clicks,
+    cast(comments as INT64) as comments,
+    cast(engagements as INT64) as engagements,
+    cast(impressions as INT64) as impressions,
+    cast(installs as INT64) as installs,
+    cast(likes as INT64) as likes,
+    cast(link_clicks as INT64) as link_clicks,
+    cast(post_click_conversions as INT64) as post_click_conversions,
+    cast(post_view_conversions as INT64) as post_view_conversions,
+    cast(posts as INT64) as posts,
+    cast(purchase as INT64) as purchase,
+    cast(registrations as INT64) as registrations,
+    cast(revenue as INT64) as revenue,
+    cast(shares as INT64) as shares,
+    cast(spend as INT64) as spend,
+    cast(total_conversions as INT64) as total_conversions,
+    cast(video_views as INT64) as video_views,
+    cast(ad_id as STRING) as ad_id,
+    cast(adset_id as STRING) as adset_id,
+    cast(campaign_id as STRING) as campaign_id,
+    cast(channel as STRING) as channel,
+    cast(creative_id as STRING) as creative_id,
+    cast(placement_id as STRING) as placement_id
+FROM  twitter_raw_data

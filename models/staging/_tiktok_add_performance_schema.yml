@@ -11,31 +11,31 @@ models:
         description: "Number of clicks"
         data_type: INT64
       - name: comments
-        description: "Number of comments"
+        description: "Number of comments (missing)"
         data_type: INT64
       - name: engagements
-        description: "Number of engagements (if there is no engament columns it can be created as a sum of views, likes, comments and shares)"
+        description: "Number of engagements (missing)"
         data_type: INT64
       - name: impressions
         description: "Number of impressions"
         data_type: INT64
       - name: installs
-        description: "Number of installs (check for all columns mentioning installs)"
+        description: "Number of installs (rt_installs + skan_app_install)"
         data_type: INT64
       - name: likes
-        description: "Number of likes"
+        description: "Number of likes (missing)"
         data_type: INT64
       - name: link_clicks
-        description: "Number of link clicks (may be url_clicks etc)"
+        description: "Number of link clicks (missing)"
         data_type: INT64
       - name: post_click_conversions
-        description: "Number of post-click conversions"
+        description: "Number of post-click conversions (missing)"
         data_type: INT64
       - name: post_view_conversions
-        description: "Number of post-view conversions"
+        description: "Number of post-view conversions (missing)"
         data_type: INT64
       - name: posts
-        description: "Number of posts"
+        description: "Number of posts (missing)"
         data_type: INT64
       - name: purchase
         description: "Number of purchases"
@@ -44,10 +44,10 @@ models:
         description: "Number of registrations"
         data_type: INT64
       - name: revenue
-        description: "Revenue generated"
+        description: "Revenue generated (missing)"
         data_type: INT64
       - name: shares
-        description: "Number of shares (retweets for twitter)"
+        description: "Number of shares (missing)"
         data_type: INT64
       - name: spend
         description: "Amount spent"
@@ -59,10 +59,10 @@ models:
         description: "Number of video views"
         data_type: INT64
       - name: ad_id
-        description: "Ad ID (look for anything that gives unique code for a this add)"
+        description: "Ad ID"
         data_type: STRING
       - name: adset_id
-        description: "Adset ID"
+        description: "Adset ID (missing)"
         data_type: STRING
       - name: campaign_id
         description: "Campaign ID"
@@ -71,8 +71,8 @@ models:
         description: "Ad channel"
         data_type: STRING
       - name: creative_id
-        description: "Creative ID"
+        description: "Creative ID (missing)"
         data_type: STRING
       - name: placement_id
-        description: "Placement ID"
+        description: "Placement ID (missing)"
         data_type: STRING

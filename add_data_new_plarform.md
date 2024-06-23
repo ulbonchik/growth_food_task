@@ -23,6 +23,6 @@
 
 ## Add Data to MCDM
 - Update the `paid_ads_basic_performance` and `paid_ads_performance_totals` SQL queries to include the new platform's data, following the pattern used for existing platforms.
-- Update both platforms only if you decide to use both of them in your work.
+- Update both platforms only if you decide to use both of them in your work. The second one was created just for the purpose of the analytics as this data is the most used and it maybe more comfortable to have all the metrics read.
 ## Validate
 - Run `dbt run` to build your models and verify that the new data is correctly included in the MCDM table.

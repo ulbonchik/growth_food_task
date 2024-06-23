@@ -35,6 +35,6 @@ aggregated_data AS (
         CASE WHEN SUM(engagements) = 0 THEN NULL ELSE SUM(spend) / SUM(engagements) END AS engagement_cost,
         CASE WHEN SUM(clicks) = 0 THEN NULL ELSE SUM(spend) / SUM(clicks) END AS cpc
     FROM combined_data
-    GROUP BY channel
+    GROUP BY channel)
 
 SELECT * from aggregated_data

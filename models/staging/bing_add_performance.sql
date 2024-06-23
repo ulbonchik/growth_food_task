@@ -1,6 +1,6 @@
 SELECT
     date,
-    NULL as add_to cart 
+    NULL as add_to_cart, 
     clicks,
     NULL as comments,
     NULL as engagements,
@@ -18,8 +18,8 @@ SELECT
     spend,
     conv as total_conversions,
     NULL as video_views,
-    add_id,
-    addset_id,
+    ad_id,
+    adset_id,
     campaign_id,
     channel,
     NULL as creative_id,

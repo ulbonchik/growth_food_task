@@ -18,7 +18,7 @@ SELECT
     retweets as shares,
     spend,
     NULL as total_conversions,
-    video_total_views,
+    video_total_views as video_views,
     url as ad_id,
     NULL as adset_id,
     campaign_id,

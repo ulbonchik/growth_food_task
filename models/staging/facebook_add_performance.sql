@@ -4,7 +4,7 @@ SELECT
     add_to_cart,
     clicks, 
     comments,
-    (likes + shares + comments + views) AS engagements, -- we create engagements field by adding views, likes, shares and comments
+    (likes + shares + comments + views + clicks) AS engagements, -- we create engagements field by adding views, likes, shares, clicks and comments
     impressions,
     mobile_app_install as installs,
     likes,

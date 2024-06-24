@@ -1,3 +1,7 @@
+**LINK TO MY THE DASHBORD**
+
+https://lookerstudio.google.com/reporting/56301cc3-e9cd-4203-b9f7-0aaa7a41d3c5
+
 # Marketing common data modelling challenge
 	Welcome to Marketing common data modelling challenge!
 
